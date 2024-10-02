@@ -6,14 +6,38 @@ Class {
 }
 
 { #category : 'tests' }
-MyPawnTest >> testFirstMove [
+MyPawnTest >> testBlackPawnAfterFirstMove [
 
 	| pawn board |
+	board := MyChessBoard empty.
+	pawn := MyPawn black.
+	board at: 'e7' put: pawn.
+	pawn moveTo: 'e5'.
+
+	self assert: pawn isFirstMove equals: false
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testBlackPawnFirstMove [
+
+	| pawn board |
+	board := MyChessBoard empty.
+	pawn := MyPawn black.
+	board at: 'e2' put: pawn.
+
+	self assert: pawn isFirstMove equals: true
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testFirstMovePawnLegalSquare [
+
+	| pawn board squares |
 	board := MyChessBoard empty.
 	pawn := MyPawn white.
 	board at: 'e2' put: pawn.
 
-	self assert: pawn isFirstMove equals: true
+	squares := pawn targetSquaresLegal: true.
+	self assert: (squares includes: (board at:'e3'))
 ]
 
 { #category : 'tests' }
@@ -23,19 +47,7 @@ MyPawnTest >> testId [
 ]
 
 { #category : 'tests' }
-MyPawnTest >> testMovePawn [
-
-	| pawn board squares |
-	board := MyChessBoard empty.
-	pawn := MyPawn white.
-	board at: 'e2' put: pawn.
-	pawn movePawn: 'e4'.
-
-	self assert: pawn isFirstMove equals: false
-]
-
-{ #category : 'tests' }
-MyPawnTest >> testTwoFirstMove [
+MyPawnTest >> testWhitePawnAfterFirstMove [
 
 	| pawn board |
 	board := MyChessBoard empty.
@@ -44,4 +56,15 @@ MyPawnTest >> testTwoFirstMove [
 	pawn moveTo: 'e4'.
 
 	self assert: pawn isFirstMove equals: false
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testWhitePawnFirstMove [
+
+	| pawn board |
+	board := MyChessBoard empty.
+	pawn := MyPawn white.
+	board at: 'e2' put: pawn.
+
+	self assert: pawn isFirstMove equals: true
 ]
