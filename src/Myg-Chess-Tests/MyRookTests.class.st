@@ -65,3 +65,17 @@ MyRookTests >> testMovesWithSameColorObstacle [
 			(#( e5 e6 e7 e8 d4 c4 b4 a4 f4 e3 e2 e1 ) collect: [ :name |
 				 board at: name ])
 ]
+
+{ #category : 'tests' }
+MyRookTests >> testRenderPieceOn [
+
+	| whiteRook blackRook |
+	whiteRook := MyRook white.
+	blackRook := MyRook black.
+
+	self assert: (whiteRook renderPieceOn: MyChessSquare black) equals: 'r'.
+	self assert: (whiteRook renderPieceOn: MyChessSquare white) equals: 'R'.
+
+	self assert: (blackRook renderPieceOn: MyChessSquare black) equals: 't'.
+	self assert: (blackRook renderPieceOn: MyChessSquare white) equals: 'T'
+]

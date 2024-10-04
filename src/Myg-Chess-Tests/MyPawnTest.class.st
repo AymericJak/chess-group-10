@@ -47,6 +47,20 @@ MyPawnTest >> testId [
 ]
 
 { #category : 'tests' }
+MyPawnTest >> testRenderPieceOn [
+
+	| whitePawn blackPawn |
+	whitePawn := MyPawn white.
+	blackPawn := MyPawn black.
+
+	self assert: (whitePawn renderPieceOn: MyChessSquare black) equals: 'p'.
+	self assert: (whitePawn renderPieceOn: MyChessSquare white) equals: 'P'.
+
+	self assert: (blackPawn renderPieceOn: MyChessSquare black) equals: 'o'.
+	self assert: (blackPawn renderPieceOn: MyChessSquare white) equals: 'O'
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testWhitePawnAfterFirstMove [
 
 	| pawn board |
