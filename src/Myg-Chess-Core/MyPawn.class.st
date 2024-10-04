@@ -56,11 +56,12 @@ MyPawn >> targetSquaresLegal: aBoolean [
 					   {
 						   square up.
 						   square up up } ] ]
-		   ifFalse: [  isFirstMove
+		   ifFalse: [
+			   isFirstMove
 				   ifFalse: [ { square down } ]
 				   ifTrue: [
 					   {
 						   square down.
 						   square down down } ] ]) select: [ :s |
-		  s notNil and: [ s hasPiece not or: [ s contents color ~= color ] ] ]
+		  s notNil and: [ s hasPiece not  ] ]
 ]
