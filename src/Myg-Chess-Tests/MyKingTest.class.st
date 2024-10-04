@@ -6,6 +6,12 @@ Class {
 }
 
 { #category : 'tests' }
+MyKingTest >> testId [
+
+	self assert: MyKing new id equals: 'K'
+]
+
+{ #category : 'tests' }
 MyKingTest >> testIsCheckByOpponentsRook [
 
 	| king board |

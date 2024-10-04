@@ -6,6 +6,12 @@ Class {
 }
 
 { #category : 'rendering' }
+MyQueen >> id [
+
+	^ 'Q'
+]
+
+{ #category : 'rendering' }
 MyQueen >> renderPieceOn: aSquare [
 
 	^ aSquare renderQueen: self
