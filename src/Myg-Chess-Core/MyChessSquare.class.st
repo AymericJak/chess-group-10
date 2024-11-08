@@ -17,7 +17,7 @@ Class {
 { #category : 'api - text weight' }
 MyChessSquare class >> black [
 
-	^ self color: Color black
+	^ MyBlackChessSquare new
 ]
 
 { #category : 'api - text weight' }
@@ -32,7 +32,7 @@ MyChessSquare class >> color: aColor [
 { #category : 'api - text weight' }
 MyChessSquare class >> white [
 
-	^ self color: Color white
+	^ MyWhiteChessSquare new
 ]
 
 { #category : 'arithmetic' }
@@ -146,8 +146,8 @@ MyChessSquare >> initialize [
 
 	super initialize.
 	target := BlElement new
-		  geometry: BlCircleGeometry new;
-		  background: (Color gray alpha: 0.3).
+		          geometry: BlCircleGeometry new;
+		          background: (Color gray alpha: 0.3).
 
 	self layout: BlFrameLayout new.
 
@@ -163,8 +163,9 @@ MyChessSquare >> initialize [
 	self
 		addChild: label;
 		addChild: piece.
+	color := Color white.
 	self
-		background: Color white;
+		background: color;
 		geometry: BlSquareGeometry new.
 
 	self addEventHandlerOn: BlClickEvent do: [ :e | self click ]
