@@ -5,6 +5,18 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'api - text weight' }
+MyBishop class >> black [
+
+	^ MyBlackBishop new
+]
+
+{ #category : 'api - text weight' }
+MyBishop class >> white [
+
+	^ MyWhiteBishop new
+]
+
 { #category : 'accessing' }
 MyBishop >> id [
 	
@@ -14,7 +26,7 @@ MyBishop >> id [
 { #category : 'rendering' }
 MyBishop >> renderPieceOn: aSquare [
 
-	^ aSquare renderBishop: self
+	self subclassResponsibility
 ]
 
 { #category : 'rendering' }

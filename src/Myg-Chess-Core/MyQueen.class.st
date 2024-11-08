@@ -5,6 +5,18 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'api - text weight' }
+MyQueen class >> black [
+
+	^ MyBlackQueen new
+]
+
+{ #category : 'api - text weight' }
+MyQueen class >> white [
+
+	^ MyWhiteQueen new
+]
+
 { #category : 'rendering' }
 MyQueen >> id [
 
@@ -14,7 +26,7 @@ MyQueen >> id [
 { #category : 'rendering' }
 MyQueen >> renderPieceOn: aSquare [
 
-	^ aSquare renderQueen: self
+	self subclassResponsibility
 ]
 
 { #category : 'rendering' }
