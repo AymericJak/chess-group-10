@@ -5,6 +5,12 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+
+{ #category : 'rendering' }
+MyWhitePawn >> renderPieceOn: aSquare [
+
+	^ aSquare renderWhitePawn
+
 { #category : 'as yet unclassified' }
 MyWhitePawn >> targetSquaresLegal: aBoolean [
 
@@ -15,4 +21,5 @@ MyWhitePawn >> targetSquaresLegal: aBoolean [
 				   square up.
 				   self moveTwoUp } ]) select: [ :s |
 		  s notNil and: s hasPiece not ]
+
 ]

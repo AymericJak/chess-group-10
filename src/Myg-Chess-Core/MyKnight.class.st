@@ -5,6 +5,18 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'api - text weight' }
+MyKnight class >> black [
+
+	^ MyBlackKnight new
+]
+
+{ #category : 'api - text weight' }
+MyKnight class >> white [
+
+	^ MyWhiteKnight new
+]
+
 { #category : 'accessing' }
 MyKnight >> id [
 	
@@ -14,7 +26,7 @@ MyKnight >> id [
 { #category : 'rendering' }
 MyKnight >> renderPieceOn: aSquare [
 
-	^ aSquare renderKnight: self
+	self subclassResponsibility
 ]
 
 { #category : 'rendering' }

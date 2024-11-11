@@ -9,22 +9,6 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
-{ #category : 'constants' }
-MyPiece class >> black [
-
-	^ self new
-		  color: Color black;
-		  yourself
-]
-
-{ #category : 'constants' }
-MyPiece class >> white [
-
-	^ self new
-		  color: Color white;
-		  yourself
-]
-
 { #category : 'as yet unclassified' }
 MyPiece >> attackingSquares [
 

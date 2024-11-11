@@ -8,6 +8,18 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'api - text weight' }
+MyPawn class >> black [
+
+	^ MyBlackPawn new
+]
+
+{ #category : 'api - text weight' }
+MyPawn class >> white [
+
+	^ MyWhitePawn new
+]
+
 { #category : 'accessing' }
 MyPawn >> id [
 
@@ -40,9 +52,9 @@ MyPawn >> moveTo: aSquare [
 ]
 
 { #category : 'rendering' }
-MyPawn >> renderPieceOn: aSquare [ 
-	
-	^ aSquare renderPawn: self
+MyPawn >> renderPieceOn: aSquare [
+
+	self subclassResponsibility
 ]
 
 { #category : 'as yet unclassified' }

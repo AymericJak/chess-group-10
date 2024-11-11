@@ -5,6 +5,11 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'rendering' }
+MyBlackPawn >> renderPieceOn: aSquare [
+
+	^ aSquare renderBlackPawn
+
 { #category : 'as yet unclassified' }
 MyBlackPawn >> targetSquaresLegal: aBoolean [
 
@@ -15,4 +20,5 @@ MyBlackPawn >> targetSquaresLegal: aBoolean [
 				   square down.
 				   self moveTwoDown } ]) select: [ :s |
 		  s notNil and: s hasPiece not ]
+
 ]
