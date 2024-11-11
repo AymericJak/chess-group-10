@@ -48,22 +48,5 @@ MyPawn >> renderPieceOn: aSquare [
 { #category : 'as yet unclassified' }
 MyPawn >> targetSquaresLegal: aBoolean [
 
-	^ (self isWhite
-		   ifTrue: [
-			   isFirstMove
-				   ifFalse: [ { square up } ]
-				   ifTrue: [
-					   {
-						   square up.
-						   self moveTwoUp } ] ]
-		   ifFalse: [
-			   isFirstMove
-				   ifFalse: [ { square down } ]
-				   ifTrue: [
-					   {
-						   square down.
-						   square down down } ] ]) select: [ :s |
-		  s notNil and: (isFirstMove
-				   ifFalse: [ s hasPiece not ]
-				   ifTrue: [true])]
+	self subclassResponsibility 
 ]
