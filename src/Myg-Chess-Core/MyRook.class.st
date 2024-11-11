@@ -5,6 +5,18 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'api - text weight' }
+MyRook class >> black [
+
+	^ MyBlackRook new
+]
+
+{ #category : 'api - text weight' }
+MyRook class >> white [
+
+	^ MyWhiteRook new
+]
+
 { #category : 'accessing' }
 MyRook >> id [
 	^ 'R'
@@ -13,7 +25,7 @@ MyRook >> id [
 { #category : 'rendering' }
 MyRook >> renderPieceOn: aSquare [
 
-	^ aSquare renderRook: self
+	self subclassResponsibility
 ]
 
 { #category : 'rendering' }

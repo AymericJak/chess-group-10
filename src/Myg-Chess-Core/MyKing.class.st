@@ -5,6 +5,18 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'api - text weight' }
+MyKing class >> black [
+
+	^ MyBlackKing new
+]
+
+{ #category : 'api - text weight' }
+MyKing class >> white [
+
+	^ MyWhiteKing new
+]
+
 { #category : 'as yet unclassified' }
 MyKing >> attackingSquares [
 
@@ -72,7 +84,7 @@ MyKing >> opponentPieces [
 { #category : 'rendering' }
 MyKing >> renderPieceOn: aSquare [
 
-	^ aSquare renderKing: self
+	self subclassResponsibility
 ]
 
 { #category : 'rendering' }
