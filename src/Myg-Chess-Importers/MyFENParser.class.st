@@ -39,21 +39,22 @@ MyFENParser >> expectString: expectedString [
 
 { #category : 'initialization' }
 MyFENParser >> initialize [
+
 	super initialize.
 	pieces := Dictionary new.
-	pieces at: $P put: 'White pawn'.
-	pieces at: $N put: 'White knight'.
-	pieces at: $B put: 'White bishop'.
-	pieces at: $R put: 'White rook'.
-	pieces at: $Q put: 'White queen'.
-	pieces at: $K put: 'White king'.
-	
-	pieces at: $p put: 'Black pawn'.
-	pieces at: $n put: 'Black knight'.
-	pieces at: $b put: 'Black bishop'.
-	pieces at: $r put: 'Black rook'.
-	pieces at: $q put: 'Black queen'.
-	pieces at: $k put: 'Black king'.
+	pieces at: $P put: 'White WhitePawn'.
+	pieces at: $N put: 'White WhiteKnight'.
+	pieces at: $B put: 'White WhiteBishop'.
+	pieces at: $R put: 'White WhiteRook'.
+	pieces at: $Q put: 'White WhiteQueen'.
+	pieces at: $K put: 'White WhiteKing'.
+
+	pieces at: $p put: 'Black BlackPawn'.
+	pieces at: $n put: 'Black BlackKnight'.
+	pieces at: $b put: 'Black BlackBishop'.
+	pieces at: $r put: 'Black BlackRook'.
+	pieces at: $q put: 'Black BlackQueen'.
+	pieces at: $k put: 'Black BlackKing'
 ]
 
 { #category : 'parsing' }
