@@ -35,9 +35,8 @@ MyPawnTest >> testFirstMovePawnLegalSquare [
 	board := MyChessBoard empty.
 	pawn := MyPawn white.
 	board at: 'e2' put: pawn.
-
 	squares := pawn targetSquaresLegal: true.
-	self assert: (squares includes: (board at:'e3'))
+	self assert: (squares includes: (board at: 'e3'))
 ]
 
 { #category : 'tests' }

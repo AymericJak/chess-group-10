@@ -89,6 +89,18 @@ MyPiece >> downLeftDiagonalLegal: aBoolean [
 		  legal: aBoolean
 ]
 
+{ #category : 'actions' }
+MyPiece >> downLegal [
+
+	^ self downLegal: false
+]
+
+{ #category : 'actions' }
+MyPiece >> downLegal: aBoolean [
+
+	^ square down select: [ :s | s notNil and: [ s hasPiece not ] ]
+]
+
 { #category : 'rendering' }
 MyPiece >> downRightDiagonal [
 
@@ -145,6 +157,30 @@ MyPiece >> legalTargetSquares [
 	^ self targetSquaresLegal: true
 ]
 
+{ #category : 'actions' }
+MyPiece >> moveLDdiagonal [
+
+	^ square down left
+]
+
+{ #category : 'actions' }
+MyPiece >> moveLUdiagonal [
+
+	^ square up left
+]
+
+{ #category : 'actions' }
+MyPiece >> moveRDdiagonal [
+
+	^ square down right
+]
+
+{ #category : 'actions' }
+MyPiece >> moveRUdiagonal [
+
+	^ square up right
+]
+
 { #category : 'path commands' }
 MyPiece >> moveTo: aSquare [
 
@@ -153,6 +189,18 @@ MyPiece >> moveTo: aSquare [
 	square emptyContents.
 	square := aSquare.
 	aSquare contents: self
+]
+
+{ #category : 'actions' }
+MyPiece >> moveTwoDown [
+
+	^ square down down
+]
+
+{ #category : 'actions' }
+MyPiece >> moveTwoUp [
+
+	^ square up up
 ]
 
 { #category : 'rendering' }
@@ -190,6 +238,12 @@ MyPiece >> targetSquaresLegal: aBoolean [
 	self subclassResponsibility
 ]
 
+{ #category : 'actions' }
+MyPiece >> twoDownLegal [
+
+	^ square down down select: [ :s | s notNil and: [ s hasPiece not ] ]
+]
+
 { #category : 'rendering' }
 MyPiece >> upFile [
 
@@ -212,6 +266,18 @@ MyPiece >> upLeftDiagonal [
 MyPiece >> upLeftDiagonalLegal: aBoolean [
 
 	^ self collectSquares: [ :aSquare | aSquare up ifNotNil: #left ] legal: aBoolean
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> upLegal [
+
+	^ self downLegal: false
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> upLegal: aBoolean [
+
+	^ square up select: [ :s | s notNil and: [ s hasPiece not ] ]
 ]
 
 { #category : 'rendering' }
