@@ -127,7 +127,7 @@ MyChessBoard >> initializeFromFENBoard: aFENBoard [
 			self
 				at: k
 				put:
-					((self class environment at: ('My' , piece capitalized) asSymbol)
+					((self class environment at: ('My' , piece) asSymbol)
 						 perform: color asLowercase asSymbol) ] ]
 ]
 
