@@ -124,9 +124,11 @@ MyChessBoard >> initializeFromFENBoard: aFENBoard [
 			substrings := v substrings.
 			color := substrings first.
 			piece := substrings second.
-			self at: k put: ((self class environment at:
-					  ('My' , piece capitalized) asSymbol) perform:
-					 color asLowercase asSymbol) ] ]
+			self
+				at: k
+				put:
+					((self class environment at: ('My' , piece) asSymbol)
+						 perform: color asLowercase asSymbol) ] ]
 ]
 
 { #category : 'initialization' }
