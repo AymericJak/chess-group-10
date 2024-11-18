@@ -14,10 +14,16 @@ MyBlackPawn >> renderPieceOn: aSquare [
 { #category : 'rendering' }
 MyBlackPawn >> targetSquaresLegal: aBoolean [
 
-	^ (isFirstMove
-		   ifFalse: [ { self downM } ]
-		   ifTrue: [
-			   {
-				   self downM.
-				   self twoDownM } ])
+	^ isFirstMove
+		  ifFalse: [
+			  {
+				  self downM.
+				  self downDiagLeftA.
+				  self downDiagRightA } ]
+		  ifTrue: [
+			  {
+				  self downM.
+				  self twoDownM.
+				  self downDiagLeftA.
+				  self downDiagRightA } ]
 ]

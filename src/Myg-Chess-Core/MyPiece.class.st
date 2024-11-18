@@ -63,6 +63,22 @@ MyPiece >> color: aColor [
 	color := aColor
 ]
 
+{ #category : 'move' }
+MyPiece >> downDiagLeftA [
+
+	^ (square down left notNil and: square down left hasPiece)
+		  ifTrue: [ square down left ]
+		  ifFalse: [  ]
+]
+
+{ #category : 'move' }
+MyPiece >> downDiagRightA [
+
+	^ (square down right notNil and: square down right hasPiece)
+		  ifTrue: [ square down right ]
+		  ifFalse: [  ]
+]
+
 { #category : 'rendering' }
 MyPiece >> downFile [
 
@@ -213,6 +229,22 @@ MyPiece >> twoUpM [
 	^ ((square up notNil and: square up hasPiece not) and: (square up up notNil and: square up up hasPiece not))
 		  ifTrue: [ square up up ]
 		  ifFalse: []
+]
+
+{ #category : 'move' }
+MyPiece >> upDiagLeftA [
+
+	^ (square up left notNil and: square up left hasPiece) 
+		  ifTrue: [ square up left ]
+		  ifFalse: [  ]
+]
+
+{ #category : 'move' }
+MyPiece >> upDiagRightA [
+
+	^ (square up right notNil and: square up right hasPiece) 
+		  ifTrue: [ square up right ]
+		  ifFalse: [  ]
 ]
 
 { #category : 'rendering' }

@@ -15,9 +15,15 @@ MyWhitePawn >> renderPieceOn: aSquare [
 MyWhitePawn >> targetSquaresLegal: aBoolean [
 
 	^ isFirstMove
-		  ifFalse: [ { self upM } ]
+		  ifFalse: [
+			  {
+				  self upM.
+				  self upDiagRightA.
+				  self upDiagLeftA } ]
 		  ifTrue: [
 			  {
 				  self upM.
-				  self twoUpM } ]
+				  self twoUpM.
+				  self upDiagRightA.
+				  self upDiagLeftA } ]
 ]
