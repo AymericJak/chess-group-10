@@ -89,6 +89,14 @@ MyPiece >> downLeftDiagonalLegal: aBoolean [
 		  legal: aBoolean
 ]
 
+{ #category : 'move' }
+MyPiece >> downM [
+
+	^ (square down notNil and: square down hasPiece not)
+		  ifTrue: [ square down ]
+		  ifFalse: [ ]
+]
+
 { #category : 'rendering' }
 MyPiece >> downRightDiagonal [
 
@@ -190,6 +198,23 @@ MyPiece >> targetSquaresLegal: aBoolean [
 	self subclassResponsibility
 ]
 
+{ #category : 'move' }
+MyPiece >> twoDownM [
+
+	^ ((square down notNil and: square down hasPiece not) and:
+		   (square down down notNil and: square down down hasPiece not))
+		  ifTrue: [ square down down ]
+		  ifFalse: [  ]
+]
+
+{ #category : 'move' }
+MyPiece >> twoUpM [
+
+	^ ((square up notNil and: square up hasPiece not) and: (square up up notNil and: square up up hasPiece not))
+		  ifTrue: [ square up up ]
+		  ifFalse: []
+]
+
 { #category : 'rendering' }
 MyPiece >> upFile [
 
@@ -212,6 +237,14 @@ MyPiece >> upLeftDiagonal [
 MyPiece >> upLeftDiagonalLegal: aBoolean [
 
 	^ self collectSquares: [ :aSquare | aSquare up ifNotNil: #left ] legal: aBoolean
+]
+
+{ #category : 'move' }
+MyPiece >> upM [
+
+	^ (square up notNil and: square up hasPiece not)
+		  ifTrue: [ square up ]
+		  ifFalse: [ ]
 ]
 
 { #category : 'rendering' }
