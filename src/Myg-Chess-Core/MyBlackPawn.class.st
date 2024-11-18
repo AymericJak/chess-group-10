@@ -15,10 +15,9 @@ MyBlackPawn >> renderPieceOn: aSquare [
 MyBlackPawn >> targetSquaresLegal: aBoolean [
 
 	^ (isFirstMove
-		   ifFalse: [ { square down } ]
+		   ifFalse: [ { self downM } ]
 		   ifTrue: [
 			   {
-				   square down.
-				   square down down } ]) select: [ :s |
-		  s notNil and: s hasPiece not ]
+				   self downM.
+				   self twoDownM } ])
 ]

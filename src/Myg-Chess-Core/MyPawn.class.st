@@ -27,9 +27,9 @@ MyPawn >> id [
 ]
 
 { #category : 'initialization' }
-MyPawn >> initialize [ 
+MyPawn >> initialize [
 
-isFirstMove := true
+	isFirstMove := true.
 ]
 
 { #category : 'accessing' }

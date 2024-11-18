@@ -14,11 +14,10 @@ MyWhitePawn >> renderPieceOn: aSquare [
 { #category : 'rendering' }
 MyWhitePawn >> targetSquaresLegal: aBoolean [
 
-	^ (isFirstMove
-		   ifFalse: [ { square up } ]
-		   ifTrue: [
-			   {
-				   square up.
-				   square up up } ]) select: [ :s |
-		  s notNil and: s hasPiece not ]
+	^ isFirstMove
+		  ifFalse: [ { self upM } ]
+		  ifTrue: [
+			  {
+				  self upM.
+				  self twoUpM } ]
 ]
