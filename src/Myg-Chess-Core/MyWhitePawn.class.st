@@ -5,6 +5,21 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'path commands' }
+MyWhitePawn >> moveTo: aSquare [
+
+	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
+
+	square emptyContents.
+
+	(aSquare name asInteger = 4 and: isFirstMove)
+		ifTrue: [ self enPassantFlag: true ]
+		ifFalse: [ self enPassantFlag: false ].
+	self isFirstMove: false.
+	square := aSquare.
+	aSquare contents: self.
+]
+
 { #category : 'rendering' }
 MyWhitePawn >> renderPieceOn: aSquare [
 
@@ -19,7 +34,8 @@ MyWhitePawn >> targetSquaresLegal: aBoolean [
 			  {
 				  self upM.
 				  self upDiagRightA.
-				  self upDiagLeftA } ]
+				  self upDiagLeftA.
+				self enPassantLeftUpM } ]
 		  ifTrue: [
 			  {
 				  self upM.
