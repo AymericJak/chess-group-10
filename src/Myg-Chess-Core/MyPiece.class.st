@@ -64,7 +64,7 @@ MyPiece >> color: aColor [
 ]
 
 { #category : 'move' }
-MyPiece >> downDiagLeftA [
+MyPiece >> downDiagLeftAttack [
 
 	^ (square down left notNil and: square down left hasPiece)
 		  ifTrue: [ square down left ]
@@ -72,7 +72,7 @@ MyPiece >> downDiagLeftA [
 ]
 
 { #category : 'move' }
-MyPiece >> downDiagRightA [
+MyPiece >> downDiagRightAttack [
 
 	^ (square down right notNil and: square down right hasPiece)
 		  ifTrue: [ square down right ]
@@ -106,7 +106,7 @@ MyPiece >> downLeftDiagonalLegal: aBoolean [
 ]
 
 { #category : 'move' }
-MyPiece >> downM [
+MyPiece >> downMove [
 
 	^ (square down notNil and: square down hasPiece not)
 		  ifTrue: [ square down ]
@@ -215,7 +215,7 @@ MyPiece >> targetSquaresLegal: aBoolean [
 ]
 
 { #category : 'move' }
-MyPiece >> twoDownM [
+MyPiece >> twoDownMove [
 
 	^ ((square down notNil and: square down hasPiece not) and:
 		   (square down down notNil and: square down down hasPiece not))
@@ -224,7 +224,7 @@ MyPiece >> twoDownM [
 ]
 
 { #category : 'move' }
-MyPiece >> twoUpM [
+MyPiece >> twoUpMove [
 
 	^ ((square up notNil and: square up hasPiece not) and: (square up up notNil and: square up up hasPiece not))
 		  ifTrue: [ square up up ]
@@ -232,7 +232,7 @@ MyPiece >> twoUpM [
 ]
 
 { #category : 'move' }
-MyPiece >> upDiagLeftA [
+MyPiece >> upDiagLeftAttack [
 
 	^ (square up left notNil and: square up left hasPiece) 
 		  ifTrue: [ square up left ]
@@ -240,7 +240,7 @@ MyPiece >> upDiagLeftA [
 ]
 
 { #category : 'move' }
-MyPiece >> upDiagRightA [
+MyPiece >> upDiagRightAttack [
 
 	^ (square up right notNil and: square up right hasPiece) 
 		  ifTrue: [ square up right ]
@@ -272,7 +272,7 @@ MyPiece >> upLeftDiagonalLegal: aBoolean [
 ]
 
 { #category : 'move' }
-MyPiece >> upM [
+MyPiece >> upMove [
 
 	^ (square up notNil and: square up hasPiece not)
 		  ifTrue: [ square up ]

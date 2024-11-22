@@ -36,13 +36,13 @@ MyBlackPawn >> targetSquaresLegal: aBoolean [
 	^ isFirstMove
 		  ifFalse: [
 			  {
-				  self downM.
-				  self downDiagLeftA.
-				  self downDiagRightA } ]
+				  self downMove.
+				  self downDiagLeftAttack.
+				  self downDiagRightAttack } ]
 		  ifTrue: [
 			  {
-				  self downM.
-				  self twoDownM.
-				  self downDiagLeftA.
-				  self downDiagRightA } ]
+				  self downMove.
+				  self twoDownMove.
+				  self downDiagLeftAttack.
+				  self downDiagRightAttack } ]
 ]

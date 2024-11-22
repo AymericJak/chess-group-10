@@ -32,14 +32,14 @@ MyWhitePawn >> targetSquaresLegal: aBoolean [
 	^ isFirstMove
 		  ifFalse: [
 			  {
-				  self upM.
-				  self upDiagRightA.
-				  self upDiagLeftA.
+				  self upMove.
+				  self upDiagRightAttack.
+				  self upDiagLeftAttack.
 				self enPassantLeftUpM } ]
 		  ifTrue: [
 			  {
-				  self upM.
-				  self twoUpM.
-				  self upDiagRightA.
-				  self upDiagLeftA } ]
+				  self upMove.
+				  self twoUpMove.
+				  self upDiagRightAttack.
+				  self upDiagLeftAttack } ]
 ]
