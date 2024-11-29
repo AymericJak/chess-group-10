@@ -12,23 +12,33 @@ MyKnightTest >> testId [
 ]
 
 { #category : 'tests' }
-MyKnightTest >> testRenderPieceOn [
-
-	| whiteKnight blackKnight |
-	whiteKnight := MyKnight white.
-	blackKnight := MyKnight black.
+MyKnightTest >> testRenderBlackKnightOnBlackSquare [
 
 	self
-		assert: (whiteKnight renderPieceOn: MyChessSquare black)
-		equals: 'n'.
-	self
-		assert: (whiteKnight renderPieceOn: MyChessSquare white)
-		equals: 'N'.
+		assert: (MyKnight black renderPieceOn: MyChessSquare black)
+		equals: 'm'
+]
+
+{ #category : 'tests' }
+MyKnightTest >> testRenderBlackKnightOnWhiteSquare [
 
 	self
-		assert: (blackKnight renderPieceOn: MyChessSquare black)
-		equals: 'm'.
-	self
-		assert: (blackKnight renderPieceOn: MyChessSquare white)
+		assert: (MyKnight black renderPieceOn: MyChessSquare white)
 		equals: 'M'
+]
+
+{ #category : 'tests' }
+MyKnightTest >> testRenderWhiteKnightOnBlackSquare [
+
+	self
+		assert: (MyKnight white renderPieceOn: MyChessSquare black)
+		equals: 'n'
+]
+
+{ #category : 'tests' }
+MyKnightTest >> testRenderWhiteKnightOnWhiteSquare [
+
+	self
+		assert: (MyKnight white renderPieceOn: MyChessSquare white)
+		equals: 'N'
 ]

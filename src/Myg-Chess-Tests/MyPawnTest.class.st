@@ -47,17 +47,35 @@ MyPawnTest >> testId [
 ]
 
 { #category : 'tests' }
-MyPawnTest >> testRenderPieceOn [
+MyPawnTest >> testRenderBlackPawnOnBlackSquare [
 
-	| whitePawn blackPawn |
-	whitePawn := MyPawn white.
-	blackPawn := MyPawn black.
+	self
+		assert: (MyPawn black renderPieceOn: MyChessSquare black)
+		equals: 'o'
+]
 
-	self assert: (whitePawn renderPieceOn: MyChessSquare black) equals: 'p'.
-	self assert: (whitePawn renderPieceOn: MyChessSquare white) equals: 'P'.
+{ #category : 'tests' }
+MyPawnTest >> testRenderBlackPawnOnWhiteSquare [
 
-	self assert: (blackPawn renderPieceOn: MyChessSquare black) equals: 'o'.
-	self assert: (blackPawn renderPieceOn: MyChessSquare white) equals: 'O'
+	self
+		assert: (MyPawn black renderPieceOn: MyChessSquare white)
+		equals: 'O'
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testRenderWhitePawnOnBlackSquare [
+
+	self
+		assert: (MyPawn white renderPieceOn: MyChessSquare black)
+		equals: 'p'
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testRenderWhitePawnOnWhiteSquare [
+
+	self
+		assert: (MyPawn white renderPieceOn: MyChessSquare white)
+		equals: 'P'
 ]
 
 { #category : 'tests' }
