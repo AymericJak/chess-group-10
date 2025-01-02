@@ -38,16 +38,33 @@ MyKingTest >> testIsNotCheckBySameColorRook [
 ]
 
 { #category : 'tests' }
-MyKingTest >> testRenderPieceOn [
+MyKingTest >> testRenderBlackKingOnBlackSquare [
 
-	| whiteKing blackKing |
-	whiteKing := MyKing white.
-	blackKing := MyKing black.
+	self
+		assert: (MyKing black renderPieceOn: MyChessSquare black)
+		equals: 'l'
+]
 
-	self assert: (whiteKing renderPieceOn: MyChessSquare black) equals: 'k'.
-	self assert: (whiteKing renderPieceOn: MyChessSquare white) equals: 'K'.
+{ #category : 'tests' }
+MyKingTest >> testRenderBlackKingOnWhiteSquare [
 
-	self assert: (blackKing renderPieceOn: MyChessSquare black) equals: 'l'.
-	self assert: (blackKing renderPieceOn: MyChessSquare white) equals: 'L'
-	
+	self
+		assert: (MyKing black renderPieceOn: MyChessSquare white)
+		equals: 'L'
+]
+
+{ #category : 'tests' }
+MyKingTest >> testRenderWhiteKingOnBlackSquare [
+
+	self
+		assert: (MyKing white renderPieceOn: MyChessSquare black)
+		equals: 'k'
+]
+
+{ #category : 'tests' }
+MyKingTest >> testRenderWhiteKingOnWhiteSquare [
+
+	self
+		assert: (MyKing white renderPieceOn: MyChessSquare white)
+		equals: 'K'
 ]

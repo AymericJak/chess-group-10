@@ -67,15 +67,33 @@ MyRookTests >> testMovesWithSameColorObstacle [
 ]
 
 { #category : 'tests' }
-MyRookTests >> testRenderPieceOn [
+MyRookTests >> testRenderBlackRookOnBlackSquare [
 
-	| whiteRook blackRook |
-	whiteRook := MyRook white.
-	blackRook := MyRook black.
+	self
+		assert: (MyRook black renderPieceOn: MyChessSquare black)
+		equals: 't'
+]
 
-	self assert: (whiteRook renderPieceOn: MyChessSquare black) equals: 'r'.
-	self assert: (whiteRook renderPieceOn: MyChessSquare white) equals: 'R'.
+{ #category : 'tests' }
+MyRookTests >> testRenderBlackRookOnWhiteSquare [
 
-	self assert: (blackRook renderPieceOn: MyChessSquare black) equals: 't'.
-	self assert: (blackRook renderPieceOn: MyChessSquare white) equals: 'T'
+	self
+		assert: (MyRook black renderPieceOn: MyChessSquare white)
+		equals: 'T'
+]
+
+{ #category : 'tests' }
+MyRookTests >> testRenderWhiteRookOnBlackSquare [
+
+	self
+		assert: (MyRook white renderPieceOn: MyChessSquare black)
+		equals: 'r'
+]
+
+{ #category : 'tests' }
+MyRookTests >> testRenderWhiteRookOnWhiteSquare [
+
+	self
+		assert: (MyRook white renderPieceOn: MyChessSquare white)
+		equals: 'R'
 ]

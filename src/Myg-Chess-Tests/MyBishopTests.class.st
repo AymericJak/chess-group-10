@@ -67,23 +67,33 @@ MyBishopTests >> testMovesWithSameColorObstacle [
 ]
 
 { #category : 'tests' }
-MyBishopTests >> testRenderPieceOn [
-
-	| whiteBishop blackBishop |
-	whiteBishop := MyBishop white.
-	blackBishop := MyBishop black.
+MyBishopTests >> testRenderBlackBishopOnBlackSquare [
 
 	self
-		assert: (whiteBishop renderPieceOn: MyChessSquare black)
-		equals: 'b'.
-	self
-		assert: (whiteBishop renderPieceOn: MyChessSquare white)
-		equals: 'B'.
+		assert: (MyBishop black renderPieceOn: MyChessSquare black)
+		equals: 'v'
+]
+
+{ #category : 'tests' }
+MyBishopTests >> testRenderBlackBishopOnWhiteSquare [
 
 	self
-		assert: (blackBishop renderPieceOn: MyChessSquare black)
-		equals: 'v'.
-	self
-		assert: (blackBishop renderPieceOn: MyChessSquare white)
+		assert: (MyBishop black renderPieceOn: MyChessSquare white)
 		equals: 'V'
+]
+
+{ #category : 'tests' }
+MyBishopTests >> testRenderWhiteBishopOnBlackSquare [
+
+	self
+		assert: (MyBishop white renderPieceOn: MyChessSquare black)
+		equals: 'b'
+]
+
+{ #category : 'tests' }
+MyBishopTests >> testRenderWhiteBishopOnWhiteSquare [
+
+	self
+		assert: (MyBishop white renderPieceOn: MyChessSquare white)
+		equals: 'B'
 ]
