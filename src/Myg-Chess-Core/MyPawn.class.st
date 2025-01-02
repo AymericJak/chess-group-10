@@ -38,11 +38,8 @@ MyPawn >> enPassantLeftUpM [
 
 	| truc |
 	truc := square left contents.
-	^ (square up left notNil and: square left hasPiece)
-		  ifTrue: [ 
-			(truc enPassantFlag)
-			ifTrue: 
-			[square up left] ]
+	^ (square up left notNil and: square left hasPiece) ifTrue: [
+		  truc enPassantFlag ifTrue: [ square up left ] ]
 ]
 
 { #category : 'accessing' }
@@ -68,6 +65,12 @@ MyPawn >> isFirstMove [
 MyPawn >> isFirstMove: aBoolean [
 
 isFirstMove := aBoolean 
+]
+
+{ #category : 'path commands' }
+MyPawn >> moveTo: aSquare [
+	super moveTo: aSquare.
+	self isFirstMove: false.
 ]
 
 { #category : 'rendering' }

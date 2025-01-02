@@ -10,7 +10,7 @@ MyPawnTest >> testBlackPawnAfterFirstMove [
 
 	| pawn board |
 	board := MyChessBoard empty.
-	pawn := MyPawn black.
+	pawn := MyBlackPawn.
 	board at: 'e7' put: pawn.
 	pawn moveTo: 'e5'.
 
@@ -68,6 +68,7 @@ MyPawnTest >> testWhitePawnAfterFirstMove [
 	pawn := MyPawn white.
 	board at: 'e2' put: pawn.
 	pawn moveTo: 'e4'.
+	
 
 	self assert: pawn isFirstMove equals: false
 ]

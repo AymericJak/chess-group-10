@@ -11,8 +11,8 @@ MyFENTest >> testParseBlackPawn [
 	| parser piece |
 	parser := MyFENParser forString: 'p'.
 	piece := parser parsePiece.
-	
-	self assert: piece equals: 'Black pawn'
+
+	self assert: piece equals: 'Black BlackPawn'
 ]
 
 { #category : 'tests' }

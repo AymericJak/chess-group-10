@@ -9,19 +9,13 @@ Class {
 MyBlackPawn >> moveTo: aSquare [
 
 	| test |
-	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
 	test := aSquare contents.
-	square emptyContents.
-
-
 	(aSquare name asInteger = 5 and: isFirstMove)
 		ifTrue: [ self enPassantFlag: true ]
 		ifFalse: [ self enPassantFlag: false ].
+		
+	super moveTo: aSquare 
 
-	self isFirstMove: false.
-
-	square := aSquare.
-	aSquare contents: self
 ]
 
 { #category : 'rendering' }
