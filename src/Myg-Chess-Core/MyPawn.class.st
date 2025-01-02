@@ -13,12 +13,16 @@ Class {
 MyPawn class >> black [
 
 	^ MyBlackPawn new
+		  color: Color black;
+		  yourself
 ]
 
 { #category : 'api - text weight' }
 MyPawn class >> white [
 
 	^ MyWhitePawn new
+		color: Color white;
+		yourself
 ]
 
 { #category : 'accessing' }

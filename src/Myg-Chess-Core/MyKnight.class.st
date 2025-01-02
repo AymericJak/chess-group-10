@@ -9,12 +9,16 @@ Class {
 MyKnight class >> black [
 
 	^ MyBlackKnight new
+		  color: Color black;
+		  yourself
 ]
 
 { #category : 'api - text weight' }
 MyKnight class >> white [
 
 	^ MyWhiteKnight new
+		color: Color white;
+		yourself
 ]
 
 { #category : 'accessing' }

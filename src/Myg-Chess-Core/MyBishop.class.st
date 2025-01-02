@@ -9,12 +9,16 @@ Class {
 MyBishop class >> black [
 
 	^ MyBlackBishop new
+		  color: Color black;
+		  yourself
 ]
 
 { #category : 'api - text weight' }
 MyBishop class >> white [
 
 	^ MyWhiteBishop new
+		color: Color white;
+		yourself
 ]
 
 { #category : 'accessing' }
