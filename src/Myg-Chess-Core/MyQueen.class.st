@@ -9,12 +9,16 @@ Class {
 MyQueen class >> black [
 
 	^ MyBlackQueen new
+		  color: Color black;
+		  yourself
 ]
 
 { #category : 'api - text weight' }
 MyQueen class >> white [
 
 	^ MyWhiteQueen new
+		color: Color white;
+		yourself
 ]
 
 { #category : 'rendering' }

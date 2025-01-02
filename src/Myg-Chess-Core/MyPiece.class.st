@@ -66,7 +66,7 @@ MyPiece >> color: aColor [
 { #category : 'move' }
 MyPiece >> downDiagLeftAttack [
 
-	^ (square down left notNil and: square down left hasPiece)
+	^ (square down left notNil and: [ (square down left) hasPiece ])
 		  ifTrue: [ square down left ]
 		  ifFalse: [  ]
 ]
@@ -74,7 +74,7 @@ MyPiece >> downDiagLeftAttack [
 { #category : 'move' }
 MyPiece >> downDiagRightAttack [
 
-	^ (square down right notNil and: square down right hasPiece)
+	^ (square down right notNil and: [ (square down right) hasPiece ])
 		  ifTrue: [ square down right ]
 		  ifFalse: [  ]
 ]
@@ -108,7 +108,7 @@ MyPiece >> downLeftDiagonalLegal: aBoolean [
 { #category : 'move' }
 MyPiece >> downMove [
 
-	^ (square down notNil and: square down hasPiece not)
+	^ (square down notNil and: [ (square down) hasPiece not ])
 		  ifTrue: [ square down ]
 		  ifFalse: [ ]
 ]
@@ -234,7 +234,7 @@ MyPiece >> twoUpMove [
 { #category : 'move' }
 MyPiece >> upDiagLeftAttack [
 
-	^ (square up left notNil and: square up left hasPiece) 
+	^ (square up left notNil and: [ (square up left) hasPiece ]) 
 		  ifTrue: [ square up left ]
 		  ifFalse: [  ]
 ]
@@ -242,7 +242,7 @@ MyPiece >> upDiagLeftAttack [
 { #category : 'move' }
 MyPiece >> upDiagRightAttack [
 
-	^ (square up right notNil and: square up right hasPiece) 
+	^ (square up right notNil and: [ (square up right) hasPiece ]) 
 		  ifTrue: [ square up right ]
 		  ifFalse: [  ]
 ]

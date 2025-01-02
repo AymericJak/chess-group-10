@@ -9,12 +9,16 @@ Class {
 MyKing class >> black [
 
 	^ MyBlackKing new
+		  color: Color black;
+		  yourself
 ]
 
 { #category : 'api - text weight' }
 MyKing class >> white [
 
 	^ MyWhiteKing new
+		  color: Color white;
+		  yourself
 ]
 
 { #category : 'as yet unclassified' }
@@ -62,6 +66,7 @@ MyKing >> isInCheck [
 	"We check if the opponent pieces target all my potential movements and myself"
 
 	| threatenedSquares |
+
 	threatenedSquares := self opponentPieces flatCollect: [ :e |
 		                     e attackingSquares ].
 

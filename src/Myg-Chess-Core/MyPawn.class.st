@@ -13,12 +13,16 @@ Class {
 MyPawn class >> black [
 
 	^ MyBlackPawn new
+		  color: Color black;
+		  yourself
 ]
 
 { #category : 'api - text weight' }
 MyPawn class >> white [
 
 	^ MyWhitePawn new
+		color: Color white;
+		yourself
 ]
 
 { #category : 'accessing' }
@@ -34,15 +38,39 @@ MyPawn >> enPassantFlag: aBoolean [
 ]
 
 { #category : 'as yet unclassified' }
-MyPawn >> enPassantLeftUpM [
+MyPawn >> enPassantLeftDownMove [
 
-	| truc |
-	truc := square left contents.
-	^ (square up left notNil and: square left hasPiece)
-		  ifTrue: [ 
-			(truc enPassantFlag)
-			ifTrue: 
-			[square up left] ]
+	| enemyPawn |
+	enemyPawn := square left ifNotNil: [ :s | s contents ].
+	^ (square down left notNil and: [ (square left) hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square down left ] ]
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> enPassantLeftUpMove [
+
+	| enemyPawn |
+	enemyPawn := square left ifNotNil: [ :s | s contents ].
+	^ (square up left notNil and: [ (square left) hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square up left ] ]
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> enPassantRightDownMove [
+
+	| enemyPawn |
+	enemyPawn := square right ifNotNil: [ :s | s contents ].
+	^ (square down right notNil and: [ (square right) hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square down right ] ]
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> enPassantRightUpMove [
+
+	| enemyPawn |
+	enemyPawn := square right ifNotNil: [ :s | s contents ].
+	^ (square up right notNil and: [ square right hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square up right ] ]
 ]
 
 { #category : 'accessing' }
@@ -68,6 +96,12 @@ MyPawn >> isFirstMove [
 MyPawn >> isFirstMove: aBoolean [
 
 isFirstMove := aBoolean 
+]
+
+{ #category : 'path commands' }
+MyPawn >> moveTo: aSquare [
+	super moveTo: aSquare.
+	self isFirstMove: false.
 ]
 
 { #category : 'rendering' }

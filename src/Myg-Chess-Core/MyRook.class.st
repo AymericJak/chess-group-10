@@ -9,12 +9,16 @@ Class {
 MyRook class >> black [
 
 	^ MyBlackRook new
+		  color: Color black;
+		  yourself
 ]
 
 { #category : 'api - text weight' }
 MyRook class >> white [
 
 	^ MyWhiteRook new
+		color: Color white;
+		yourself
 ]
 
 { #category : 'accessing' }
