@@ -8,16 +8,13 @@ Class {
 { #category : 'path commands' }
 MyWhitePawn >> moveTo: aSquare [
 
-	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
-
-	square emptyContents.
-
+	| test |
+	test := aSquare contents.
 	(aSquare name asInteger = 4 and: isFirstMove)
 		ifTrue: [ self enPassantFlag: true ]
 		ifFalse: [ self enPassantFlag: false ].
-	self isFirstMove: false.
-	square := aSquare.
-	aSquare contents: self.
+
+	super moveTo: aSquare
 ]
 
 { #category : 'rendering' }
@@ -35,7 +32,8 @@ MyWhitePawn >> targetSquaresLegal: aBoolean [
 				  self upMove.
 				  self upDiagRightAttack.
 				  self upDiagLeftAttack.
-				self enPassantLeftUpM } ]
+				  self enPassantLeftUpMove.
+				  self enPassantRightUpMove } ]
 		  ifTrue: [
 			  {
 				  self upMove.

@@ -32,7 +32,9 @@ MyBlackPawn >> targetSquaresLegal: aBoolean [
 			  {
 				  self downMove.
 				  self downDiagLeftAttack.
-				  self downDiagRightAttack } ]
+				  self downDiagRightAttack.
+				  self enPassantLeftDownMove.
+				  self enPassantRightDownMove } ]
 		  ifTrue: [
 			  {
 				  self downMove.
