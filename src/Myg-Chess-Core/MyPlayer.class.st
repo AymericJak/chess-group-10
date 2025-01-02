@@ -70,7 +70,7 @@ MyPlayer >> play [
 		| piece legalMoves |
 		piece := pieces atRandom.
 		pieces remove: piece.
-		legalMoves := piece legalTargetSquares.
+		legalMoves := piece legalTargetSquares reject: [ :each | each isNil ].
 		legalMoves ifNotEmpty: [
 			game move: piece to: legalMoves atRandom.
 			^ self ] ].

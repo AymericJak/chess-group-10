@@ -41,8 +41,8 @@ MyPawn >> enPassantFlag: aBoolean [
 MyPawn >> enPassantLeftDownMove [
 
 	| enemyPawn |
-	enemyPawn := square left contents.
-	^ (square down left notNil and: square left hasPiece) ifTrue: [
+	enemyPawn := square left ifNotNil: [ :s | s contents ].
+	^ (square down left notNil and: [ (square left) hasPiece ]) ifTrue: [
 		  enemyPawn enPassantFlag ifTrue: [ square down left ] ]
 ]
 
@@ -50,8 +50,8 @@ MyPawn >> enPassantLeftDownMove [
 MyPawn >> enPassantLeftUpMove [
 
 	| enemyPawn |
-	enemyPawn := square left contents.
-	^ (square up left notNil and: square left hasPiece) ifTrue: [
+	enemyPawn := square left ifNotNil: [ :s | s contents ].
+	^ (square up left notNil and: [ (square left) hasPiece ]) ifTrue: [
 		  enemyPawn enPassantFlag ifTrue: [ square up left ] ]
 ]
 
@@ -59,8 +59,8 @@ MyPawn >> enPassantLeftUpMove [
 MyPawn >> enPassantRightDownMove [
 
 	| enemyPawn |
-	enemyPawn := square right contents.
-	^ (square down right notNil and: square right hasPiece) ifTrue: [
+	enemyPawn := square right ifNotNil: [ :s | s contents ].
+	^ (square down right notNil and: [ (square right) hasPiece ]) ifTrue: [
 		  enemyPawn enPassantFlag ifTrue: [ square down right ] ]
 ]
 
@@ -68,8 +68,8 @@ MyPawn >> enPassantRightDownMove [
 MyPawn >> enPassantRightUpMove [
 
 	| enemyPawn |
-	enemyPawn := square right contents.
-	^ (square up right notNil and: square right hasPiece) ifTrue: [
+	enemyPawn := square right ifNotNil: [ :s | s contents ].
+	^ (square up right notNil and: [ square right hasPiece ]) ifTrue: [
 		  enemyPawn enPassantFlag ifTrue: [ square up right ] ]
 ]
 
