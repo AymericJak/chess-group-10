@@ -12,23 +12,33 @@ MyQueenTest >> testId [
 ]
 
 { #category : 'tests' }
-MyQueenTest >> testRenderPieceOn [
-
-	| whiteQueen blackQueen |
-	whiteQueen := MyQueen white.
-	blackQueen := MyQueen black.
+MyQueenTest >> testRenderBlackQueenOnBlackSquare [
 
 	self
-		assert: (whiteQueen renderPieceOn: MyChessSquare black)
-		equals: 'q'.
-	self
-		assert: (whiteQueen renderPieceOn: MyChessSquare white)
-		equals: 'Q'.
+		assert: (MyQueen black renderPieceOn: MyChessSquare black)
+		equals: 'w'
+]
+
+{ #category : 'tests' }
+MyQueenTest >> testRenderBlackQueenOnWhiteSquare [
 
 	self
-		assert: (blackQueen renderPieceOn: MyChessSquare black)
-		equals: 'w'.
-	self
-		assert: (blackQueen renderPieceOn: MyChessSquare white)
+		assert: (MyQueen black renderPieceOn: MyChessSquare white)
 		equals: 'W'
+]
+
+{ #category : 'tests' }
+MyQueenTest >> testRenderWhiteQueenOnBlackSquare [
+
+	self
+		assert: (MyQueen white renderPieceOn: MyChessSquare black)
+		equals: 'q'
+]
+
+{ #category : 'tests' }
+MyQueenTest >> testRenderWhiteQueenOnWhiteSquare [
+
+	self
+		assert: (MyQueen white renderPieceOn: MyChessSquare white)
+		equals: 'Q'
 ]
