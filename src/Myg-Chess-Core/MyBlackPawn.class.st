@@ -8,14 +8,11 @@ Class {
 { #category : 'path commands' }
 MyBlackPawn >> moveTo: aSquare [
 
-	| test |
-	test := aSquare contents.
 	(aSquare name asInteger = 5 and: isFirstMove)
 		ifTrue: [ self enPassantFlag: true ]
 		ifFalse: [ self enPassantFlag: false ].
-		
-	super moveTo: aSquare 
 
+	super moveTo: aSquare
 ]
 
 { #category : 'rendering' }

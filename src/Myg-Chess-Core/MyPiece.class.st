@@ -3,7 +3,8 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'color',
-		'square'
+		'square',
+		'enPassantFlag'
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -128,9 +129,21 @@ MyPiece >> downRightDiagonalLegal: aBoolean [
 ]
 
 { #category : 'accessing' }
+MyPiece >> enPassantFlag [
+
+	^ enPassantFlag
+]
+
+{ #category : 'accessing' }
 MyPiece >> id [
 
 	^ 'Q'
+]
+
+{ #category : 'initialization' }
+MyPiece >> initialize [ 
+
+enPassantFlag := false
 ]
 
 { #category : 'testing' }
