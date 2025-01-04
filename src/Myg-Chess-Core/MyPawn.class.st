@@ -35,8 +35,8 @@ MyPawn >> enPassantLeftDownMove [
 
 	| enemyPawn |
 	enemyPawn := square left ifNotNil: [ :s | s contents ].
-	^ (square down left notNil and: [ (square left) hasPiece ]) ifTrue: [
-		  enemyPawn enPassantFlag ifTrue: [ square down left ] ]
+	^ (square down left notNil and: [ square left hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square down left ] ] ifFalse: [ ]
 ]
 
 { #category : 'as yet unclassified' }
