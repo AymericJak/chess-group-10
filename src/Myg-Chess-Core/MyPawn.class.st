@@ -2,8 +2,7 @@ Class {
 	#name : 'MyPawn',
 	#superclass : 'MyPiece',
 	#instVars : [
-		'isFirstMove',
-		'enPassantFlag'
+		'isFirstMove'
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -26,12 +25,6 @@ MyPawn class >> white [
 ]
 
 { #category : 'accessing' }
-MyPawn >> enPassantFlag [
-
-^ enPassantFlag 
-]
-
-{ #category : 'accessing' }
 MyPawn >> enPassantFlag: aBoolean [
 
 	enPassantFlag := aBoolean 
@@ -42,8 +35,8 @@ MyPawn >> enPassantLeftDownMove [
 
 	| enemyPawn |
 	enemyPawn := square left ifNotNil: [ :s | s contents ].
-	^ (square down left notNil and: [ (square left) hasPiece ]) ifTrue: [
-		  enemyPawn enPassantFlag ifTrue: [ square down left ] ]
+	^ (square down left notNil and: [ square left hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square down left ] ] ifFalse: [ ]
 ]
 
 { #category : 'as yet unclassified' }
@@ -51,8 +44,8 @@ MyPawn >> enPassantLeftUpMove [
 
 	| enemyPawn |
 	enemyPawn := square left ifNotNil: [ :s | s contents ].
-	^ (square up left notNil and: [ (square left) hasPiece ]) ifTrue: [
-		  enemyPawn enPassantFlag ifTrue: [ square up left ] ]
+	^ (square up left notNil and: [ square left hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square up left ] ] ifFalse: [ ].
 ]
 
 { #category : 'as yet unclassified' }
@@ -60,8 +53,8 @@ MyPawn >> enPassantRightDownMove [
 
 	| enemyPawn |
 	enemyPawn := square right ifNotNil: [ :s | s contents ].
-	^ (square down right notNil and: [ (square right) hasPiece ]) ifTrue: [
-		  enemyPawn enPassantFlag ifTrue: [ square down right ] ]
+	^ (square down right notNil and: [ square right hasPiece ]) ifTrue: [
+		  enemyPawn enPassantFlag ifTrue: [ square down right ] ] ifFalse: [ ].
 ]
 
 { #category : 'as yet unclassified' }
@@ -70,7 +63,7 @@ MyPawn >> enPassantRightUpMove [
 	| enemyPawn |
 	enemyPawn := square right ifNotNil: [ :s | s contents ].
 	^ (square up right notNil and: [ square right hasPiece ]) ifTrue: [
-		  enemyPawn enPassantFlag ifTrue: [ square up right ] ]
+		  enemyPawn enPassantFlag ifTrue: [ square up right ] ] ifFalse: [ ].
 ]
 
 { #category : 'accessing' }
@@ -83,7 +76,6 @@ MyPawn >> id [
 MyPawn >> initialize [
 
 	isFirstMove := true.
-	enPassantFlag := false.
 ]
 
 { #category : 'accessing' }

@@ -8,8 +8,6 @@ Class {
 { #category : 'path commands' }
 MyWhitePawn >> moveTo: aSquare [
 
-	| test |
-	test := aSquare contents.
 	(aSquare name asInteger = 4 and: isFirstMove)
 		ifTrue: [ self enPassantFlag: true ]
 		ifFalse: [ self enPassantFlag: false ].
